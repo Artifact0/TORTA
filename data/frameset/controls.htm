@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, max-age=0">
+		<meta http-equiv="expires" content="0">
+		<meta name="referrer" content="no-referrer">
+		<meta name="author" content="Daniel Winzen">
+		<title>Daniel's Chat</title>
+		<style type="text/css">
+			body{background-color:#000000;color:#FFFFFF;font-size:14px;text-align:center;} a:visited{color:#AAAAAA;} a:active{color:#FFFFFF;} a:link{color:#EEEEEE;} #messages{word-wrap:break-word;} input,select,textarea{color:#FFFFFF;background-color:#000000;} .messages a img{width:15%} .messages a:hover img{width:35%} .error{color:#FF0033;text-align:left;} .delbutton{background-color:#660000;} .backbutton{background-color:#004400;} #exitbutton{background-color:#AA0000;} .setup table table,.admin table table,.profile table table{width:100%;text-align:left} .alogin table,.init table,.destroy_chat table,.delete_account table,.sessions table,.filter table,.linkfilter table,.notes table,.approve_waiting table,.del_confirm table,.profile table,.admin table,.backup table,.setup table{margin-left:auto;margin-right:auto;} .setup table table table,.admin table table table,.profile table table table{border-spacing:0px;margin-left:auto;margin-right:unset;width:unset;} .setup table table td,.backup #restoresubmit,.backup #backupsubmit,.admin table table td,.profile table table td,.login td+td,.alogin td+td{text-align:right;} .init td,.backup #restorecheck td,.admin #clean td,.admin #regnew td,.session td,.messages,.inbox,.approve_waiting td,.choose_messages,.greeting,.help,.login td,.alogin td{text-align:left;} .messages #chatters{max-height:100px;overflow-y:auto;} .messages #chatters a{text-decoration-line:none;} .messages #chatters table{border-spacing:0px;} .messages #chatters th,.messages #chatters td,.post #firstline{vertical-align:top;} .approve_waiting #action td:only-child,.help #backcredit,.login td:only-child,.alogin td:only-child,.init td:only-child{text-align:center;} .sessions td,.sessions th,.approve_waiting td,.approve_waiting th{padding: 5px;} .sessions td td{padding: 1px;} .messages #bottom_link{position:fixed;top:0.5em;right:0.5em;} .messages #top_link{position:fixed;bottom:0.5em;right:0.5em;} .post table,.controls table,.login table{border-spacing:0px;margin-left:auto;margin-right:auto;} .login table{border:2px solid;} .controls{overflow-y:none;} #manualrefresh{display:block;position:fixed;text-align:center;left:25%;width:50%;top:-200%;animation:timeout_messages 25s forwards;z-index:2;background-color:#500000;border:2px solid #ff0000;} @keyframes timeout_messages{0%{top:-200%;} 99%{top:-200%;} 100%{top:0%;}} .notes textarea{height:80vh;width:80%;}
+		</style>
+		<style type="text/css">body{background-color:#000011;color:#ffffff;} /* ChatTor-like CSS */
+			.msg {padding: 0.5em 0; border-bottom: 1px solid #363636}
+			input, select, textarea, button {padding: 0.2em; border: 1px solid #ffffff; border-radius: 0.5em}
+			#messages small {color: #989898}
+			#messages {display: block; width: 79%}
+			.messages #topic {display: block; width: 79%}
+			.messages #chatters {display: block; float:right; width: 20%; overflow-y: auto; position:fixed; right:0px; max-height:100%; bottom:2em; top:2em;}
+			.messages #chatters td, #chatters tr, #chatters th {display: table-row; width: 100%!important;}
+			.messages #chatters table a {display: table-row; line-height: 0;}
+		</style>
+	</head>
+	<body class="controls">
+		<table>
+			<tbody>
+				<tr>
+					<td background=#123456>
+						<!--
+						<form action="/post.htm" enctype="multipart/form-data" method="post" target="post">
+							<input name="lang" value="en" type="hidden">
+							<input name="nc" value="" type="hidden">
+							<input name="action" value="post" type="hidden">
+							<input name="session" value="REPLACE_SESSION_HERE" type="hidden">
+							<input value="Reload Post Box" type="submit">
+						</form>
+						-->
+						<a href='post.htm' target='post'>Reload Post Frame</a>
+					</td>
+					<td background=#654321>
+						<!--
+						<form action="/live.htm" enctype="multipart/form-data" method="post" target="view">
+							<input name="lang" value="en" type="hidden">
+							<input name="nc" value="" type="hidden">
+							<input name="action" value="view" type="hidden">
+							<input name="session" value="REPLACE_SESSION_HERE" type="hidden">
+							<input value="Reload Messages" type="submit">
+						</form>
+						-->
+						<a href='live.htm' target='view'>Reload Messages Frame</a>
+					</td>
+					<td>
+						<!--
+						<form action="/profile.htm" enctype="multipart/form-data" method="post" target="view">
+							<input name="lang" value="en" type="hidden">
+							<input name="nc" value="" type="hidden">
+							<input name="action" value="profile" type="hidden">
+							<input name="session" value="REPLACE_SESSION_HERE" type="hidden">
+							<input value="Profile" type="submit">
+						</form>
+						-->
+					</td>
+					<td>
+						<!--
+						<form action="/admin.htm" enctype="multipart/form-data" method="post" target="view">
+							<input name="lang" value="en" type="hidden">
+							<input name="nc" value="353728" type="hidden">
+							<input name="action" value="admin" type="hidden">
+							<input name="session" value="REPLACE_SESSION_HERE" type="hidden">
+							<input value="Admin" type="submit">
+						</form>
+						<a href='admin.htm' target='view'>Admin</a>
+						-->
+					</td>
+					<td>
+						<!--
+						<form action="/notes.htm" enctype="multipart/form-data" method="post" target="view">
+							<input name="lang" value="en" type="hidden">
+							<input name="nc" value="353728" type="hidden">
+							<input name="action" value="notes" type="hidden">
+							<input name="session" value="REPLACE_SESSION_HERE" type="hidden">
+							<input value="Notes" type="submit">
+						</form>
+						<a href='notes.htm' target='view'>Notes</a>
+						-->
+					</td>
+<!--					<td>
+						<form action="/chat.php" enctype="multipart/form-data" method="post" target="_blank">
+							<input name="lang" value="en" type="hidden">
+							<input name="nc" value="353728" type="hidden">
+							<input name="action" value="login" type="hidden">
+							<input name="session" value="REPLACE_SESSION_HERE" type="hidden">
+							<input value="Clone" type="submit">
+						</form>
+					</td>
+--><!--					<td>
+						<form action="/chat.php" enctype="multipart/form-data" method="post" target="_parent">
+							<input name="lang" value="en" type="hidden">
+							<input name="nc" value="353728" type="hidden">
+							<input name="action" value="login" type="hidden">
+							<input name="session" value="REPLACE_SESSION_HERE" type="hidden">
+							<input name="sort" value="1" type="hidden">
+							<input value="Rearrange" type="submit">
+						</form>
+					</td>
+-->					<td background=#fedcba>
+						<!--
+						<form action="/help.htm" enctype="multipart/form-data" method="post" target="view">
+							<input name="lang" value="en" type="hidden">
+							<input name="nc" value="353728" type="hidden">
+							<input name="action" value="help" type="hidden">
+							<input name="session" value="REPLACE_SESSION_HERE" type="hidden">
+							<input value="Rules &amp; Help" type="submit">
+						</form>
+						-->
+						<a href='help.htm' target='view'>Help</a>
+					</td>
+<!--					<td>
+						<form action="/chat.php" enctype="multipart/form-data" method="post" target="_parent">
+							<input name="lang" value="en" type="hidden">
+							<input name="nc" value="353728" type="hidden">
+							<input name="action" value="logout" type="hidden">
+							<input name="session" value="REPLACE_SESSION_HERE" type="hidden">
+							<input value="Exit Chat" id="exitbutton" type="submit">
+						</form>
+					</td>
+-->				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>
